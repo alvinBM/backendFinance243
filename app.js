@@ -42,27 +42,18 @@ app.post('/api/user', userController.createUser);
 
 
 /** Liste des users */
-app.use("/api/users", (req, res) => {
+app.get("/api/users", userController.getUsers);
 
-    let users = [
-        {
-            id: 1,
-            name: "Alvin Bauma",
-            age: 26
-        },
-        {
-            id: 2,
-            name: "Jean Dupond",
-            age: 32
-        }
-    ]
 
-    res.status(200).json({
-        status: 200,
-        users
-    });
+/** Get un user */
+app.get("/api/users/:id", userController.getUser);
 
-});
+/** Update un user */
+app.put("/api/users/:id", userController.updateUser);
+
+
+/** Delete un user */
+app.delete("/api/users/:id", userController.deleteUser);
 
 
 
