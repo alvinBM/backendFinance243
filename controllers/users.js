@@ -3,6 +3,7 @@ const User = require('../models/User');
 exports.getUsers = (req, res, next) => {
     User.find()
         .then(users => {
+            console.log("User getted...")
             res.status(200).json({
                 status: 200,
                 users,
